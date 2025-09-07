@@ -29,26 +29,27 @@ import Link from "next/link"
 const services = [
   {
     id: 1,
-    title: "Equipment Repair",
-    description: "Professional repair services for all types of agriculture equipment",
+    title: "गाँव तक उपकरण मरम्मत | Village-Level Equipment Repair",
+    description: "सभी प्रकार के कृषि उपकरणों के लिए पेशेवर मरम्मत सेवाएं। Professional repair services for all types of agriculture equipment.",
     longDescription:
-      "Our expert technicians provide comprehensive repair services for brush cutters, power tillers, sprayers, and other farming equipment. We use genuine parts and follow manufacturer guidelines to ensure your equipment performs at its best.",
+      "हमारे विशेषज्ञ तकनीशियन ब्रश कटर, पावर टिलर, स्प्रेयर और अन्य कृषि उपकरणों की व्यापक मरम्मत सेवाएं प्रदान करते हैं। 24 घंटे में आपके खेत तक पहुंचकर सेवा। Our expert technicians provide comprehensive repair services. We reach your farm within 24 hours using genuine parts.",
     icon: <Wrench className="h-8 w-8" />,
-    features: ["Expert Technicians", "Genuine Parts", "Quick Turnaround", "Warranty on Repairs"],
-    pricing: "Starting from ₹500",
-    duration: "1-3 days",
+    features: ["विशेषज्ञ तकनीशियन", "असली पुर्जे", "तुरंत सेवा", "मरम्मत पर वारंटी"],
+    pricing: "₹500 से शुरुआत | Starting from ₹500",
+    duration: "1-3 दिन | 1-3 days",
     image: "/agriculture-equipment-repair-service.jpg",
+    region: "500+ गाँवों में सेवा | Serving 500+ Villages",
   },
   {
     id: 2,
-    title: "Preventive Maintenance",
-    description: "Regular maintenance to keep your equipment running smoothly",
+    title: "मानसून रेडी रखरखाव | Monsoon-Ready Maintenance",
+    description: "आपके उपकरणों को सुचारू रूप से चलाने के लिए नियमित रखरखाव। Regular maintenance to keep equipment running smoothly.",
     longDescription:
-      "Scheduled maintenance services to prevent breakdowns and extend equipment life. Our maintenance packages include cleaning, lubrication, part inspection, and performance optimization to ensure maximum efficiency.",
+      "टूटने से बचने और उपकरण जीवन बढ़ाने के लिए निर्धारित रखरखाव सेवाएं। मानसून पूर्व और फसल के बाद विशेष पैकेज। Scheduled maintenance services to prevent breakdowns. Pre-monsoon and post-harvest special packages.",
     icon: <Cog className="h-8 w-8" />,
-    features: ["Scheduled Service", "Performance Check", "Oil Change", "Filter Replacement"],
-    pricing: "Starting from ₹300",
-    duration: "2-4 hours",
+    features: ["निर्धारित सेवा", "प्रदर्शन जांच", "तेल परिवर्तन", "फिल्टर बदलाव"],
+    pricing: "₹300 से शुरुआत | Starting from ₹300",
+    duration: "2-4 घंटे | 2-4 hours",
     image: "/agriculture-equipment-maintenance-service.jpg",
   },
   {
@@ -187,13 +188,14 @@ export default function ServicesPage() {
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {services.map((service) => (
-            <Card key={service.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="aspect-[4/3] overflow-hidden">
+            <Card key={service.id} className="overflow-hidden hover:shadow-xl transition-shadow border-green-700 border-2 rounded-2xl bg-gradient-to-br from-green-50 via-white to-green-100">
+              <div className="relative aspect-[4/3] overflow-hidden">
                 <img
-                  src={service.image || "/placeholder.svg"}
+                  src={"/img/" + service.image.replace("/", "")}
                   alt={service.title}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 rounded-xl border border-green-200"
                 />
+                <Leaf className="absolute top-2 left-2 h-7 w-7 text-green-600 bg-white rounded-full p-1 shadow-md" />
               </div>
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-2">
@@ -201,9 +203,12 @@ export default function ServicesPage() {
                     <div className="text-primary">{service.icon}</div>
                   </div>
                   <div>
-                    <CardTitle className="text-xl">{service.title}</CardTitle>
+                    <CardTitle className="text-xl flex items-center gap-2">
+                      <Leaf className="h-5 w-5 text-green-600" />
+                      {service.title}
+                    </CardTitle>
                     <div className="flex items-center space-x-4 mt-1">
-                      <Badge variant="secondary" className="text-xs">
+                      <Badge variant="secondary" className="text-xs bg-green-100 text-green-800 border-green-300">
                         <Clock className="h-3 w-3 mr-1" />
                         {service.duration}
                       </Badge>
@@ -211,7 +216,7 @@ export default function ServicesPage() {
                     </div>
                   </div>
                 </div>
-                <CardDescription>{service.description}</CardDescription>
+                <CardDescription className="text-green-900">{service.description}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="grid grid-cols-2 gap-2">
@@ -224,13 +229,18 @@ export default function ServicesPage() {
                 </div>
                 <div className="flex space-x-2">
                   <Link href={`/services/${service.id}`} className="flex-1">
-                    <Button variant="outline" size="sm" className="w-full bg-transparent">
+                    <Button variant="outline" size="sm" className="w-full bg-green-600 hover:bg-green-700 text-white rounded-full">
                       Learn More
                     </Button>
                   </Link>
-                  <Button size="sm" className="flex-1" onClick={() => setSelectedService(service.title)}>
-                    Book Service
-                  </Button>
+                  <div className="relative group flex-1">
+                    <Button size="sm" className="w-full bg-green-600 hover:bg-green-700 text-white rounded-full">
+                      Book Service
+                    </Button>
+                    <span className="absolute left-1/2 -translate-x-1/2 mt-2 px-2 py-1 text-xs bg-green-700 text-white rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                      Fast, certified agriculture service
+                    </span>
+                  </div>
                 </div>
               </CardContent>
             </Card>

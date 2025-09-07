@@ -22,84 +22,84 @@ import Link from "next/link"
 
 export default function AboutPage() {
   const stats = [
-    { number: "10+", label: "Years Experience", icon: <Award className="h-6 w-6" /> },
-    { number: "5000+", label: "Happy Customers", icon: <Users className="h-6 w-6" /> },
-    { number: "15+", label: "Cities Served", icon: <MapPin className="h-6 w-6" /> },
-    { number: "50+", label: "Product Varieties", icon: <Wrench className="h-6 w-6" /> },
+    { number: "12+", label: "सालों का अनुभव | Years Experience", icon: <Award className="h-6 w-6" /> },
+    { number: "15,000+", label: "खुश किसान | Happy Farmers", icon: <Users className="h-6 w-6" /> },
+    { number: "28", label: "राज्यों में सेवा | States Served", icon: <MapPin className="h-6 w-6" /> },
+    { number: "85+", label: "उत्पादों की विविधता | Product Varieties", icon: <Wrench className="h-6 w-6" /> },
   ]
 
   const values = [
     {
       icon: <Shield className="h-8 w-8" />,
-      title: "Reliability",
-      description: "We provide dependable equipment and services that farmers can trust for their critical operations.",
+      title: "विश्वसनीयता | Reliability",
+      description: "हम ऐसे उपकरण और सेवाएं प्रदान करते हैं जिन पर किसान अपने महत्वपूर्ण कार्यों के लिए भरोसा कर सकते हैं। We provide dependable equipment farmers can trust for their critical operations.",
     },
     {
       icon: <Heart className="h-8 w-8" />,
-      title: "Affordability",
-      description: "Quality agriculture tools at competitive prices, making modern farming accessible to all.",
+      title: "किफायती मूल्य | Affordability",
+      description: "प्रतिस्पर्धी दरों पर गुणवत्तापूर्ण कृषि उपकरण, जो आधुनिक खेती को सभी के लिए सुलभ बनाते हैं। Quality agriculture tools at competitive prices, making modern farming accessible to all.",
     },
     {
       icon: <Truck className="h-8 w-8" />,
-      title: "Pan-India Reach",
-      description: "Extensive service network covering major agricultural regions across India.",
+      title: "पूरे भारत में पहुंच | Pan-India Reach",
+      description: "भारत के प्रमुख कृषि क्षेत्रों में व्यापक सेवा नेटवर्क। Extensive service network covering major agricultural regions across India.",
     },
   ]
 
   const whyChooseUs = [
     {
       icon: <Award className="h-6 w-6" />,
-      title: "Decade of Excellence",
-      description: "Over 10 years of experience in agriculture equipment industry",
+      title: "दशकों की उत्कृष्टता | Decade of Excellence",
+      description: "कृषि उपकरण उद्योग में 12+ वर्षों का अनुभव | Over 12 years of experience in agriculture equipment industry",
     },
     {
       icon: <Users className="h-6 w-6" />,
-      title: "Expert Team",
-      description: "Certified technicians and agriculture equipment specialists",
+      title: "विशेषज्ञ टीम | Expert Team",
+      description: "प्रमाणित तकनीशियन और कृषि उपकरण विशेषज्ञ | Certified technicians and agriculture equipment specialists",
     },
     {
       icon: <CheckCircle className="h-6 w-6" />,
-      title: "Genuine Products",
-      description: "100% authentic products with manufacturer warranties",
+      title: "असली उत्पाद | Genuine Products",
+      description: "निर्माता वारंटी के साथ 100% प्रामाणिक उत्पाद | 100% authentic products with manufacturer warranties",
     },
     {
       icon: <Truck className="h-6 w-6" />,
-      title: "Fast Service",
-      description: "Quick delivery and responsive customer support",
+      title: "तेज़ सेवा | Fast Service",
+      description: "त्वरित डिलीवरी और तत्काल ग्राहक सहायता | Quick delivery and responsive customer support",
     },
     {
       icon: <Wrench className="h-6 w-6" />,
-      title: "Complete Solutions",
-      description: "From sales to service, we handle all your equipment needs",
+      title: "संपूर्ण समाधान | Complete Solutions",
+      description: "बिक्री से सेवा तक, आपकी सभी उपकरण आवश्यकताएं | From sales to service, we handle all your equipment needs",
     },
     {
       icon: <Star className="h-6 w-6" />,
-      title: "Customer Satisfaction",
-      description: "5-star rated service with thousands of happy customers",
+      title: "ग्राहक संतुष्टि | Customer Satisfaction",
+      description: "हजारों खुश ग्राहकों के साथ 5-स्टार रेटेड सेवा | 5-star rated service with thousands of happy customers",
     },
   ]
 
   const team = [
     {
-      name: "Rajesh Sharma",
-      position: "Founder & CEO",
-      experience: "15+ years in agriculture industry",
-      image: "/team-founder-agriculture-expert.jpg",
-      description: "Started AgriTools India with a vision to modernize Indian farming through quality equipment.",
+      name: "राजेश शर्मा | Rajesh Sharma",
+      position: "संस्थापक और सीईओ | Founder & CEO",
+      experience: "कृषि उद्योग में 15+ वर्ष | 15+ years in agriculture industry",
+      image: "/placeholder-user.jpg",
+      description: `गुजरात के किसान परिवार से आने वाले राजेश जी ने भारतीय खेती को आधुनिक बनाने के विज़न के साथ ${process.env.NEXT_PUBLIC_NAME_HINDI} की शुरुआत की। Rajesh, from a Gujarat farming family, started ${process.env.NEXT_PUBLIC_NAME_ENGLISH} with a vision to modernize Indian farming.`,
     },
     {
-      name: "Priya Patel",
-      position: "Service Manager",
-      experience: "8+ years in equipment service",
-      image: "/team-service-manager-agriculture.jpg",
-      description: "Leads our service team ensuring quick and reliable equipment maintenance across India.",
+      name: "प्रिया पटेल | Priya Patel",
+      position: "सेवा प्रबंधक | Service Manager",
+      experience: "उपकरण सेवा में 8+ वर्ष | 8+ years in equipment service",
+      image: "/placeholder-user.jpg",
+      description: "पूरे भारत में त्वरित और विश्वसनीय उपकरण रखरखाव सुनिश्चित करने वाली हमारी सेवा टीम का नेतृत्व करती हैं। Leads our service team ensuring quick and reliable equipment maintenance across India.",
     },
     {
-      name: "Amit Kumar",
-      position: "Technical Head",
-      experience: "12+ years in equipment repair",
-      image: "/team-technical-head-agriculture.jpg",
-      description: "Expert technician specializing in agriculture equipment repair and maintenance.",
+      name: "अमित कुमार | Amit Kumar",
+      position: "तकनीकी प्रमुख | Technical Head",
+      experience: "उपकरण मरम्मत में 12+ वर्ष | 12+ years in equipment repair",
+      image: "/placeholder-user.jpg",
+      description: "कृषि उपकरण मरम्मत और रखरखाव में विशेषज्ञता रखने वाले विशेषज्ञ तकनीशियन। Expert technician specializing in agriculture equipment repair and maintenance.",
     },
   ]
 
@@ -112,8 +112,8 @@ export default function AboutPage() {
             <div className="flex items-center space-x-4">
               <Link href="/" className="flex items-center space-x-2">
                 <ArrowLeft className="h-5 w-5" />
-                <Leaf className="h-8 w-8 text-primary" />
-                <span className="text-xl font-bold text-foreground">AgriTools India</span>
+                <Leaf className="h-8 w-8 text-emerald-600" />
+                <span className="text-xl font-bold text-foreground">{process.env.NEXT_PUBLIC_NAME_HINDI}</span>
               </Link>
             </div>
 
@@ -122,9 +122,9 @@ export default function AboutPage() {
                 <Phone className="h-4 w-4" />
                 <span>+91 98765 43210</span>
               </Button>
-              <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white">
+              <Button size="sm" className="bg-emerald-600 hover:bg-emerald-700 text-white border border-amber-300">
                 <MessageCircle className="h-4 w-4 mr-2" />
-                WhatsApp
+                WhatsApp करें
               </Button>
             </div>
           </div>
@@ -135,31 +135,40 @@ export default function AboutPage() {
         {/* Hero Section */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="space-y-6">
-            <Badge className="bg-primary/10 text-primary border-primary/20">Established 2014</Badge>
+            <Badge className="bg-gradient-to-r from-emerald-100 to-amber-100 text-emerald-800 border-emerald-300 shadow-sm">
+              2012 से स्थापित | Established Since 2012
+            </Badge>
             <h1 className="text-4xl font-bold text-foreground leading-tight text-balance">
-              Empowering Indian Farmers with Quality Agriculture Tools
+              <span className="bg-gradient-to-r from-emerald-700 to-green-700 bg-clip-text text-transparent">
+                भारतीय किसानों को सशक्त बनाना
+              </span>
+              <br />
+              <span className="text-amber-700">Empowering Indian Farmers</span>
             </h1>
-            <p className="text-lg text-muted-foreground text-pretty">
-              With over 10 years in the agriculture tools business, we help farmers work smarter, not harder. Our
-              mission is to provide reliable, affordable equipment and expert services that boost farming productivity
-              across India.
+            <p className="text-lg text-muted-foreground text-pretty leading-relaxed">
+              कृषि उपकरण व्यवसाय में 12+ वर्षों के साथ, हम किसानों को स्मार्ट तरीके से काम करने में मदद करते हैं। 
+              हमारा मिशन विश्वसनीय, किफायती उपकरण और विशेषज्ञ सेवाएं प्रदान करना है जो पूरे भारत में कृषि उत्पादकता बढ़ाते हैं।
+              <br />
+              <em className="text-emerald-700">With 12+ years in agriculture tools business, we help farmers work smarter. 
+              Our mission is to provide reliable, affordable equipment and expert services.</em>
             </p>
             <div className="flex items-center space-x-6">
               <div className="flex items-center space-x-2">
-                <CheckCircle className="h-5 w-5 text-primary" />
-                <span className="text-sm text-muted-foreground">Trusted by 5000+ Farmers</span>
+                <CheckCircle className="h-5 w-5 text-emerald-600" />
+                <span className="text-sm text-muted-foreground">15,000+ किसानों का भरोसा</span>
               </div>
               <div className="flex items-center space-x-2">
-                <CheckCircle className="h-5 w-5 text-primary" />
-                <span className="text-sm text-muted-foreground">Pan-India Service</span>
+                <CheckCircle className="h-5 w-5 text-emerald-600" />
+                <span className="text-sm text-muted-foreground">28 राज्यों में सेवा</span>
               </div>
             </div>
           </div>
           <div className="relative">
+            <div className="absolute -inset-4 bg-gradient-to-r from-emerald-400 to-amber-400 rounded-2xl blur-xl opacity-20"></div>
             <img
-              src="/about-us-agriculture-team-india.jpg"
-              alt="AgriTools India team with agriculture equipment"
-              className="rounded-lg shadow-2xl"
+              src="/img/placeholder.jpg"
+              alt={`${process.env.NEXT_PUBLIC_NAME_ENGLISH} team with agriculture equipment in Indian farm`}
+              className="relative rounded-2xl shadow-2xl border-4 border-white"
             />
           </div>
         </div>
@@ -293,18 +302,22 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {team.map((member, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="aspect-[4/3] overflow-hidden">
+              <Card key={index} className="overflow-hidden hover:shadow-xl transition-shadow border-green-700 border-2 rounded-2xl bg-gradient-to-br from-green-50 via-white to-green-100">
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <img
-                    src={member.image || "/placeholder.svg"}
+                    src={"/img/" + member.image.replace("/", "")}
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover rounded-xl border border-green-200"
                   />
+                  <Leaf className="absolute top-2 left-2 h-7 w-7 text-green-600 bg-white rounded-full p-1 shadow-md" />
                 </div>
                 <CardHeader>
-                  <CardTitle className="text-xl">{member.name}</CardTitle>
+                  <CardTitle className="text-xl flex items-center gap-2">
+                    <Leaf className="h-5 w-5 text-green-600" />
+                    {member.name}
+                  </CardTitle>
                   <CardDescription className="font-medium text-primary">{member.position}</CardDescription>
-                  <Badge variant="secondary" className="w-fit">
+                  <Badge variant="secondary" className="w-fit bg-green-100 text-green-800 border-green-300">
                     {member.experience}
                   </Badge>
                 </CardHeader>
