@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { Phone, MessageCircle, Leaf, ArrowLeft, CheckCircle, Clock, Star, Wrench, Cog } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
@@ -112,10 +113,12 @@ export default function ServicePage({ params }: ServicePageProps) {
           {/* Service Image */}
           <div className="space-y-4">
             <div className="aspect-[4/3] overflow-hidden rounded-lg border">
-              <img
+              <Image
                 src={service.image || "/placeholder.svg"}
                 alt={service.title}
                 className="w-full h-full object-cover"
+                width={500}
+                height={300}
               />
             </div>
           </div>
@@ -209,7 +212,7 @@ export default function ServicePage({ params }: ServicePageProps) {
 
             <Card>
               <CardHeader>
-                <CardTitle>What's Included</CardTitle>
+                <CardTitle>What&apos;s Included</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-2 gap-3">
@@ -283,10 +286,12 @@ export default function ServicePage({ params }: ServicePageProps) {
               .map((relatedService) => (
                 <Card key={relatedService.id} className="overflow-hidden hover:shadow-lg transition-shadow">
                   <div className="aspect-[4/3] overflow-hidden">
-                    <img
+                    <Image
                       src={relatedService.image || "/placeholder.svg"}
                       alt={relatedService.title}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      width={500}
+                      height={300}
                     />
                   </div>
                   <CardHeader>

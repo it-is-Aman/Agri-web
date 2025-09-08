@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { Phone, MessageCircle, Wrench, Cog, Leaf, ArrowRight, CheckCircle } from "lucide-react"
 import Link from "next/link"
 import type { Metadata } from "next"
+import Image from "next/image"
 
 export const metadata: Metadata = {
   title: `${process.env.NEXT_PUBLIC_NAME_HINDI} - Authentic Agriculture Tools & Services | भारत का भरोसेमंद साथी`,
@@ -137,8 +138,8 @@ export default function HomePage() {
                 <span className="text-amber-700">Authentic Agriculture Tools</span>
               </h1>
               <p className="text-lg text-muted-foreground text-pretty leading-relaxed">
-                From Kashmir's apple orchards to Kerala's spice gardens - we've been supporting Indian farmers with 
-                <strong className="text-emerald-700"> genuine equipment, honest prices, and expert guidance</strong>. 
+                From Kashmir&apos;s apple orchards to Kerala&apos;s spice gardens - we&apos;ve been supporting Indian farmers with
+                <strong className="text-emerald-700"> genuine equipment, honest prices, and expert guidance</strong>.
                 Because we believe every farmer deserves tools that work as hard as they do.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -167,10 +168,12 @@ export default function HomePage() {
             </div>
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-emerald-400 to-amber-400 rounded-2xl blur-xl opacity-20"></div>
-              <img
+              <Image
                 src="/img/farmer-using-brush-cutter-in-green-agricultural-fi.jpg"
                 alt="Indian farmer using professional agriculture tools in field"
                 className="relative rounded-2xl shadow-2xl border-4 border-white"
+                width={500}
+                height={300}
               />
               <div className="absolute -bottom-4 -right-4 bg-white rounded-xl p-4 shadow-lg border border-emerald-200">
                 <div className="flex items-center space-x-2">
@@ -250,10 +253,12 @@ export default function HomePage() {
             {featuredProducts.map((product) => (
               <Card key={product.id} className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-emerald-200 hover:border-emerald-400 rounded-3xl bg-gradient-to-br from-white via-emerald-50/50 to-amber-50/30 hover:scale-105">
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
+                  <Image
                     src={"/img/" + product.image.replace("/", "")}
                     alt={product.name}
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500 rounded-2xl border-2 border-emerald-200"
+                    width={500}
+                    height={300}
                   />
                   <div className="absolute top-3 left-3 bg-gradient-to-r from-emerald-600 to-green-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
                     {product.origin}
@@ -308,7 +313,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-amber-600/20 to-transparent"></div>
         <div className="container mx-auto px-4 text-center relative">
           <h2 className="text-3xl font-bold mb-4">
-            मदद चाहिए? हम यहाँ हैं | Need Help? We're Here for You
+            मदद चाहिए? हम यहाँ हैं | Need Help? We&apos;re Here for You
           </h2>
           <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto leading-relaxed">
             चाहे आपको विशेषज्ञ सलाह चाहिए, तुरंत कोटेशन चाहिए, या अपने कृषि उपकरणों की मरम्मत करवानी हो - 

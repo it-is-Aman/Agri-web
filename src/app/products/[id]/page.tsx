@@ -5,6 +5,7 @@ import { Separator } from "@/components/ui/separator"
 import { Phone, MessageCircle, Leaf, ArrowLeft, CheckCircle, Truck, Shield, Wrench } from "lucide-react"
 import Link from "next/link"
 import { notFound } from "next/navigation"
+import Image from "next/image"
 
 const products = [
   {
@@ -130,19 +131,23 @@ export default function ProductPage({ params }: ProductPageProps) {
           {/* Product Images */}
           <div className="space-y-4">
             <div className="aspect-square overflow-hidden rounded-lg border">
-              <img
+              <Image
                 src={product.images[0] || "/placeholder.svg"}
                 alt={product.name}
                 className="w-full h-full object-cover"
+                width={500}
+                height={500}
               />
             </div>
             <div className="grid grid-cols-3 gap-4">
               {product.images.slice(1).map((image, index) => (
                 <div key={index} className="aspect-square overflow-hidden rounded-lg border">
-                  <img
+                  <Image
                     src={image || "/placeholder.svg"}
                     alt={`${product.name} view ${index + 2}`}
                     className="w-full h-full object-cover hover:scale-105 transition-transform cursor-pointer"
+                    width={500}
+                    height={500}
                   />
                 </div>
               ))}
@@ -252,7 +257,7 @@ export default function ProductPage({ params }: ProductPageProps) {
 
             <Card>
               <CardHeader>
-                <CardTitle>What's Included</CardTitle>
+                <CardTitle>What&apos;s Included</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">
@@ -300,10 +305,12 @@ export default function ProductPage({ params }: ProductPageProps) {
               .map((relatedProduct) => (
                 <Card key={relatedProduct.id} className="overflow-hidden hover:shadow-lg transition-shadow">
                   <div className="aspect-[4/3] overflow-hidden">
-                    <img
+                    <Image
                       src={relatedProduct.images[0] || "/placeholder.svg"}
                       alt={relatedProduct.name}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      width={500}
+                      height={300}
                     />
                   </div>
                   <CardHeader>

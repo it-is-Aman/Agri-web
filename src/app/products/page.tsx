@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Search, Filter, Phone, MessageCircle, Leaf, ArrowLeft } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 const products = [
 	{
@@ -267,10 +268,12 @@ export default function ProductsPage() {
 							className="overflow-hidden hover:shadow-xl transition-shadow border-green-700 border-2 rounded-2xl bg-gradient-to-br from-green-50 via-white to-green-100"
 						>
 							<div className="relative aspect-[4/3] overflow-hidden">
-								<img
+								<Image
 									src={"/img/" + product.image.replace("/", "")}
 									alt={product.name}
 									className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 rounded-xl border border-green-200"
+									width={500}
+									height={300}
 								/>
 								{!product.inStock && (
 									<div className="absolute top-2 right-2">
@@ -394,7 +397,7 @@ export default function ProductsPage() {
 				{/* CTA Section */}
 				<div className="mt-16 bg-primary text-primary-foreground rounded-lg p-8 text-center">
 					<h2 className="text-2xl font-bold mb-4">
-						Can't Find What You're Looking For?
+						Can&apos;t Find What You&apos;re Looking For?
 					</h2>
 					<p className="mb-6 opacity-90">
 						Contact us directly for custom requirements or specific product

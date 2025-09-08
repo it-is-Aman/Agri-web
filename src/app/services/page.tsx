@@ -25,6 +25,7 @@ import {
   Calendar,
 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 const services = [
   {
@@ -190,10 +191,12 @@ export default function ServicesPage() {
           {services.map((service) => (
             <Card key={service.id} className="overflow-hidden hover:shadow-xl transition-shadow border-green-700 border-2 rounded-2xl bg-gradient-to-br from-green-50 via-white to-green-100">
               <div className="relative aspect-[4/3] overflow-hidden">
-                <img
+                <Image
                   src={"/img/" + service.image.replace("/", "")}
                   alt={service.title}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 rounded-xl border border-green-200"
+                  width={500}
+                  height={300}
                 />
                 <Leaf className="absolute top-2 left-2 h-7 w-7 text-green-600 bg-white rounded-full p-1 shadow-md" />
               </div>
@@ -427,7 +430,7 @@ export default function ServicesPage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground italic">"{testimonial.comment}"</p>
+                  <p className="text-sm text-muted-foreground italic">&quot;{testimonial.comment}&quot;</p>
                 </CardContent>
               </Card>
             ))}

@@ -127,7 +127,7 @@ export default function ContactPage() {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-foreground mb-4">Contact Us</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Get in touch with our agriculture equipment experts. We're here to help you find the right tools and
+            Get in touch with our agriculture equipment experts. We&apos;re here to help you find the right tools and
             services for your farming needs.
           </p>
         </div>
@@ -167,7 +167,7 @@ export default function ContactPage() {
                     <CheckCircle className="h-6 w-6" />
                     <div>
                       <h3 className="font-semibold">Message Sent Successfully!</h3>
-                      <p className="text-sm">We'll get back to you within 24 hours.</p>
+                      <p className="text-sm">We&apos;ll get back to you within 24 hours.</p>
                     </div>
                   </div>
                 </CardContent>

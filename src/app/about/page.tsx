@@ -19,6 +19,7 @@ import {
   Lightbulb,
 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function AboutPage() {
   const stats = [
@@ -165,10 +166,12 @@ export default function AboutPage() {
           </div>
           <div className="relative">
             <div className="absolute -inset-4 bg-gradient-to-r from-emerald-400 to-amber-400 rounded-2xl blur-xl opacity-20"></div>
-            <img
+            <Image
               src="/img/placeholder.jpg"
               alt={`${process.env.NEXT_PUBLIC_NAME_ENGLISH} team with agriculture equipment in Indian farm`}
               className="relative rounded-2xl shadow-2xl border-4 border-white"
+              layout="fill"
+              objectFit="cover"
             />
           </div>
         </div>
@@ -193,7 +196,7 @@ export default function AboutPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">Our Story</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              From a small shop to a trusted name across India - here's how we grew with our farming community
+              From a small shop to a trusted name across India - here&apos;s how we grew with our farming community
             </p>
           </div>
 
@@ -228,10 +231,12 @@ export default function AboutPage() {
             </div>
 
             <div className="relative">
-              <img
+              <Image
                 src="/agriculture-equipment-shop-history.jpg"
                 alt="AgriTools India shop evolution"
                 className="rounded-lg shadow-lg"
+                width={500}
+                height={300}
               />
             </div>
           </div>
@@ -296,7 +301,7 @@ export default function AboutPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">Meet Our Team</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              The dedicated professionals behind AgriTools India's success
+              The dedicated professionals behind AgriTools India&apos;s success
             </p>
           </div>
 
@@ -304,10 +309,12 @@ export default function AboutPage() {
             {team.map((member, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-xl transition-shadow border-green-700 border-2 rounded-2xl bg-gradient-to-br from-green-50 via-white to-green-100">
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
+                  <Image
                     src={"/img/" + member.image.replace("/", "")}
                     alt={member.name}
                     className="w-full h-full object-cover rounded-xl border border-green-200"
+                    layout="fill"
+                    objectFit="cover"
                   />
                   <Leaf className="absolute top-2 left-2 h-7 w-7 text-green-600 bg-white rounded-full p-1 shadow-md" />
                 </div>
@@ -360,7 +367,7 @@ export default function AboutPage() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground leading-relaxed">
-                To become India's most trusted agriculture equipment partner, driving the modernization of farming
+                To become India&apos;s most trusted agriculture equipment partner, driving the modernization of farming
                 through innovative tools, exceptional service, and unwavering commitment to farmer success.
               </p>
             </CardContent>

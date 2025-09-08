@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Search, Calendar, Clock, User, ArrowRight, Phone, MessageCircle, Leaf, ArrowLeft } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 const blogPosts = [
 	{
@@ -163,10 +164,12 @@ export default function BlogPage() {
 						{featuredPosts.map((post) => (
 							<Card key={post.id} className="overflow-hidden hover:shadow-xl transition-shadow border-green-700 border-2 rounded-2xl bg-gradient-to-br from-green-50 via-white to-green-100">
 								<div className="relative aspect-[16/9] overflow-hidden">
-									<img
+									<Image
 										src={"/img/" + post.image.replace("/", "")}
 										alt={post.title}
 										className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 rounded-xl border border-green-200"
+										width={640}
+										height={360}
 									/>
 									<Leaf className="absolute top-2 left-2 h-7 w-7 text-green-600 bg-white rounded-full p-1 shadow-md" />
 								</div>
@@ -254,10 +257,12 @@ export default function BlogPage() {
 								<Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow">
 									<div className="md:flex">
 										<div className="md:w-1/3 aspect-[4/3] md:aspect-auto overflow-hidden">
-											<img
+											<Image
 												src={post.image || "/placeholder.svg"}
 												alt={post.title}
 												className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+												width={640}
+												height={360}
 											/>
 										</div>
 										<div className="md:w-2/3">
@@ -342,10 +347,12 @@ export default function BlogPage() {
 								{recentPosts.map((post) => (
 									<div key={post.id} className="flex space-x-3">
 										<div className="w-16 h-16 overflow-hidden rounded-lg flex-shrink-0">
-											<img
+											<Image
 												src={"/img/" + post.image.replace("/", "")}
 												alt={post.title}
 												className="w-full h-full object-cover rounded-lg border border-green-200"
+												width={640}
+												height={360}
 											/>
 										</div>
 										<div className="flex-1 min-w-0">

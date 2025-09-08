@@ -186,7 +186,7 @@ export default function ContactPage() {
               <CardDescription>
                 अपनी आवश्यकताओं के बारे में बताएं और हम 24 घंटे में संपर्क करेंगे
                 <br />
-                <em className="text-emerald-600">Tell us your requirements and we'll contact within 24 hours</em>
+                <em className="text-emerald-600">Tell us your requirements and we&apos;ll contact within 24 hours</em>
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -199,7 +199,7 @@ export default function ContactPage() {
                   <p className="text-emerald-600">
                     हमें आपका संदेश मिल गया है। हम जल्दी ही संपर्क करेंगे।
                     <br />
-                    <em>We received your message. We'll contact you soon.</em>
+                    <em>We received your message. We&apos;ll contact you soon.</em>
                   </p>
                 </div>
               ) : (

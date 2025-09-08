@@ -16,6 +16,7 @@ import {
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
+import Image from "next/image"
 
 const blogPosts = [
   {
@@ -401,7 +402,12 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
           {/* Featured Image */}
           <div className="aspect-[16/9] overflow-hidden rounded-lg mb-8">
-            <img src={post.image || "/placeholder.svg"} alt={post.title} className="w-full h-full object-cover" />
+            <Image
+              src={post.image || "/placeholder.svg"}
+              alt={post.title}
+              className="w-full h-full object-cover"
+              width={640}
+              height={360} />
           </div>
         </div>
 
@@ -495,10 +501,12 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                 {relatedPosts.map((relatedPost) => (
                   <div key={relatedPost.id} className="flex space-x-3">
                     <div className="w-16 h-16 overflow-hidden rounded-lg flex-shrink-0">
-                      <img
+                      <Image
                         src={relatedPost.image || "/placeholder.svg"}
                         alt={relatedPost.title}
                         className="w-full h-full object-cover"
+                        width={640}
+                        height={360}
                       />
                     </div>
                     <div className="flex-1 min-w-0">
@@ -545,10 +553,12 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               {relatedPosts.map((relatedPost) => (
                 <Card key={relatedPost.id} className="overflow-hidden hover:shadow-lg transition-shadow">
                   <div className="aspect-[4/3] overflow-hidden">
-                    <img
+                    <Image
                       src={relatedPost.image || "/placeholder.svg"}
                       alt={relatedPost.title}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      width={640}
+                      height={360}
                     />
                   </div>
                   <CardHeader>
