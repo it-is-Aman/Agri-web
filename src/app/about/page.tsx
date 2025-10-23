@@ -192,7 +192,7 @@ export default function AboutPage() {
         </div>
 
         {/* Our Story */}
-        <div className="mb-16">
+        {/* <div className="mb-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">Our Story</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -240,7 +240,7 @@ export default function AboutPage() {
               />
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Our Values */}
         <div className="mb-16">
@@ -297,7 +297,7 @@ export default function AboutPage() {
         </div>
 
         {/* Our Team */}
-        <div className="mb-16">
+        {/* <div className="mb-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">Meet Our Team</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -334,7 +334,7 @@ export default function AboutPage() {
               </Card>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Mission & Vision */}
         <div className="grid lg:grid-cols-2 gap-8 mb-16">

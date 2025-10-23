@@ -1,3 +1,4 @@
+'use client'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -5,30 +6,33 @@ import { Phone, MessageCircle, Wrench, Cog, Leaf, ArrowRight, CheckCircle } from
 import Link from "next/link"
 import type { Metadata } from "next"
 import Image from "next/image"
+import React from "react"
 
-export const metadata: Metadata = {
-  title: `${process.env.NEXT_PUBLIC_NAME_HINDI} - Authentic Agriculture Tools & Services | भारत का भरोसेमंद साथी`,
-  description:
-    "With 12+ years of serving Indian farmers, we provide genuine agriculture tools, quality spare parts, and trusted maintenance services. From Punjab's wheat fields to Kerala's coconut groves - we understand your farming needs.",
-  keywords: [
-    "authentic agriculture tools India",
-    "genuine farming equipment",
-    "brush cutter for Indian farmers",
-    "power tiller price India",
-    "agriculture sprayer Indian market",
-    "farm equipment repair India",
-    "agriculture maintenance services",
-    "किसान उपकरण",
-    "भारतीय कृषि उपकरण",
-  ],
-  openGraph: {
-    title: `${process.env.NEXT_PUBLIC_NAME_HINDI} - Trusted Agriculture Tools for Indian Farmers`,
-    description: "Serving Indian farmers for over 12 years with genuine tools and expert services.",
-    images: ["/img/farmer-using-brush-cutter-in-green-agricultural-fi.jpg"],
-  },
-}
+// export const metadata: Metadata = {
+//   title: `${process.env.NEXT_PUBLIC_NAME_HINDI} - Authentic Agriculture Tools & Services | भारत का भरोसेमंद साथी`,
+//   description:
+//     "With 12+ years of serving Indian farmers, we provide genuine agriculture tools, quality spare parts, and trusted maintenance services. From Punjab's wheat fields to Kerala's coconut groves - we understand your farming needs.",
+//   keywords: [
+//     "authentic agriculture tools India",
+//     "genuine farming equipment",
+//     "brush cutter for Indian farmers",
+//     "power tiller price India",
+//     "agriculture sprayer Indian market",
+//     "farm equipment repair India",
+//     "agriculture maintenance services",
+//     "किसान उपकरण",
+//     "भारतीय कृषि उपकरण",
+//   ],
+//   openGraph: {
+//     title: `${process.env.NEXT_PUBLIC_NAME_HINDI} - Trusted Agriculture Tools for Indian Farmers`,
+//     description: "Serving Indian farmers for over 12 years with genuine tools and expert services.",
+//     images: ["/img/farmer-using-brush-cutter-in-green-agricultural-fi.jpg"],
+//   },
+// }
 
 export default function HomePage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
+
   const featuredProducts = [
     {
       id: 1,
@@ -89,6 +93,7 @@ export default function HomePage() {
               <span className="text-sm text-muted-foreground hidden sm:inline">| {process.env.NEXT_PUBLIC_NAME_ENGLISH}</span>
             </div>
 
+            {/* Desktop Nav */}
             <nav className="hidden md:flex items-center space-x-6">
               <Link href="/products" className="text-foreground hover:text-primary transition-colors">
                 Products
@@ -107,7 +112,21 @@ export default function HomePage() {
               </Link>
             </nav>
 
-            <div className="flex items-center space-x-3">
+            {/* Mobile Nav Toggle */}
+            <div className="md:hidden flex items-center">
+              <button
+                type="button"
+                className="inline-flex items-center justify-center p-2 rounded-md text-emerald-700 hover:bg-emerald-100 focus:outline-none focus:ring-2 focus:ring-emerald-600"
+                aria-label="Open main menu"
+                onClick={() => setMobileMenuOpen((open) => !open)}
+              >
+                <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+
+            <div className="hidden md:flex items-center space-x-3">
               <Button variant="outline" size="sm" className="hidden sm:flex items-center space-x-2 bg-transparent">
                 <Phone className="h-4 w-4" />
                 <span>+91 98765 43210</span>
@@ -119,6 +138,28 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+        {/* Mobile Menu Drawer */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-background border-t border-border shadow-lg">
+            <nav className="flex flex-col px-4 py-4 space-y-2">
+              <Link href="/products" className="text-foreground hover:text-primary py-2 px-2 rounded transition-colors">
+                Products
+              </Link>
+              <Link href="/services" className="text-foreground hover:text-primary py-2 px-2 rounded transition-colors">
+                Services
+              </Link>
+              <Link href="/blog" className="text-foreground hover:text-primary py-2 px-2 rounded transition-colors">
+                Blog
+              </Link>
+              <Link href="/about" className="text-foreground hover:text-primary py-2 px-2 rounded transition-colors">
+                About
+              </Link>
+              <Link href="/contact" className="text-foreground hover:text-primary py-2 px-2 rounded transition-colors">
+                Contact
+              </Link>
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}
@@ -131,7 +172,8 @@ export default function HomePage() {
                 12+ सालों से किसानों का भरोसा | Trusted Since 2012
               </Badge>
               <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight text-balance">
-                <span className="bg-gradient-to-r from-emerald-700 to-green-700 bg-clip-text text-transparent">
+                {/* <span className="bg-gradient-to-r from-emerald-700 to-green-700 bg-clip-text text-transparent"> */}
+                <span className="text-green-700 ">
                   भारतीय किसानों के लिए
                 </span>
                 <br />
@@ -224,9 +266,9 @@ export default function HomePage() {
                       <Button size="sm" className="bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white rounded-full border border-amber-300 shadow-md">
                         <MessageCircle className="h-4 w-4 mr-1" /> सहायता लें | Get Help
                       </Button>
-                      <span className="absolute left-1/2 -translate-x-1/2 mt-2 px-3 py-2 text-xs bg-emerald-800 text-white rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                      {/* <span className="absolute left-1/2 -translate-x-1/2 mt-2 px-3 py-2 text-xs bg-emerald-800 text-white rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none w-full max-w-xs text-center">
                         तुरंत सहायता - 24 घंटे में सेवा | Immediate help - Service within 24 hours
-                      </span>
+                      </span> */}
                     </div>
                   </div>
                 </CardContent>
@@ -288,9 +330,9 @@ export default function HomePage() {
                       <Button size="sm" className="bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white rounded-full border border-amber-300 shadow-md">
                         <MessageCircle className="h-4 w-4 mr-1" /> जानकारी लें | Enquire
                       </Button>
-                      <span className="absolute left-1/2 -translate-x-1/2 mt-2 px-3 py-2 text-xs bg-emerald-800 text-white rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                      {/* <span className="absolute left-1/2 -translate-x-1/2 mt-2 px-3 py-2 text-xs bg-emerald-800 text-white rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
                         विशेषज्ञ सलाह और तुरंत कोटेशन | Expert advice & instant quote
-                      </span>
+                      </span> */}
                     </div>
                   </div>
                 </CardContent>
