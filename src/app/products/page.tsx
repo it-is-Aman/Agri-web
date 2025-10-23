@@ -71,7 +71,7 @@ const products = [
 	{
 		id: 4,
 		name: "ब्रश कटर ब्लेड सेट | Brush Cutter Blade Set",
-		category: "Spare Parts",
+		category: "Accessories",
 		description:
 			"अधिकांश ब्रश कटर मॉडल के साथ संगत उच्च गुणवत्ता वाले प्रतिस्थापन ब्लेड। High-quality replacement blades compatible with most brush cutter models.",
 		image: "/brush-cutter-replacement-blades-set.jpg",
@@ -90,7 +90,7 @@ const products = [
 	{
 		id: 5,
 		name: "टिलर रोटरी ब्लेड | Tiller Rotary Blades",
-		category: "Spare Parts",
+		category: "Accessories",
 		description:
 			"भारतीय मिट्टी की स्थितियों के लिए डिज़ाइन किए गए पावर टिलर के लिए टिकाऊ रोटरी ब्लेड। Durable rotary blades for power tillers, designed for Indian soil conditions.",
 		image: "/power-tiller-rotary-blades-farming-equipment.jpg",
@@ -127,20 +127,30 @@ const products = [
 	},
 ]
 
-const categories = ["सभी उत्पाद | All Products", "Brush Cutters", "Power Tillers", "Sprayers", "स्पेयर पार्ट्स | Spare Parts"]
+const categories = [
+	"सभी उत्पाद | All Products",
+	"Brush Cutters",
+	"Power Tillers",
+	"Sprayers",
+	"Accessories"
+]
 
 export default function ProductsPage() {
 	const [searchTerm, setSearchTerm] = useState("")
 	const [selectedCategory, setSelectedCategory] = useState("सभी उत्पाद | All Products")
 	const [sortBy, setSortBy] = useState("name")
 
+	// Filter out accessories for main products grid
+	const mainProductCategories = ["Brush Cutters", "Power Tillers", "Sprayers"];
 	const filteredProducts = products
 		.filter((product) => {
 			const matchesSearch =
 				product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
 				product.description.toLowerCase().includes(searchTerm.toLowerCase())
 			const matchesCategory =
-				selectedCategory === "सभी उत्पाद | All Products" || product.category === selectedCategory
+				selectedCategory === "सभी उत्पाद | All Products"
+					? mainProductCategories.includes(product.category)
+					: product.category === selectedCategory
 			return matchesSearch && matchesCategory
 		})
 		.sort((a, b) => {
@@ -260,6 +270,15 @@ export default function ProductsPage() {
 					</div>
 				</div>
 
+				{/* Add Accessories Button */}
+				<div className="mb-8 text-right">
+					<Link href="/accessories">
+						<Button variant="outline" className="border-green-600 text-green-700 hover:bg-green-50">
+							View Accessories
+						</Button>
+					</Link>
+				</div>
+
 				{/* Products Grid */}
 				<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 					{filteredProducts.map((product) => (
@@ -267,11 +286,11 @@ export default function ProductsPage() {
 							key={product.id}
 							className="overflow-hidden hover:shadow-xl transition-shadow border-green-700 border-2 rounded-2xl bg-gradient-to-br from-green-50 via-white to-green-100"
 						>
-							<div className="relative aspect-[4/3] overflow-hidden">
+							<div className="relative overflow-hidden">
 								<Image
 									src={"/img/" + product.image.replace("/", "")}
 									alt={product.name}
-									className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 rounded-xl border border-green-200"
+									className="w-full h-full p-4 object-cover hover:scale-105 transition-transform duration-300 rounded-2xl "
 									width={500}
 									height={300}
 								/>
