@@ -3,18 +3,23 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Phone, MessageCircle, Leaf } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 export default function Header() {
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+    const router = useRouter()
     return (
         <>
             {/* Header */}
             < header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border shadow-sm" >
                 <div className="container mx-auto px-4 py-4">
                     <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-2">
+                        <div
+                            className="flex items-center space-x-2 hover:cursor-pointer"
+                            onClick={() => { router.push("/") }}
+                        >
                             <Leaf className="h-8 w-8 text-emerald-600 animate-pulse-slow" />
                             <div className="flex flex-col">
                                 <span className="text-xl font-bold text-foreground">{process.env.NEXT_PUBLIC_NAME_HINDI}</span>
@@ -58,7 +63,7 @@ export default function Header() {
                         <div className="hidden md:flex items-center space-x-3">
                             <Button variant="outline" size="sm" className="hidden sm:flex items-center space-x-2 bg-transparent hover-lift">
                                 <Phone className="h-4 w-4" />
-                                <span>+91 98765 43210</span>
+                                <span>{process.env.NEXT_PUBLIC_PHONE}</span>
                             </Button>
                             <Button size="sm" className="bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white border border-amber-300 hover-lift">
                                 <MessageCircle className="h-4 w-4 mr-2" />

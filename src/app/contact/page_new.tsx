@@ -51,7 +51,7 @@ export default function ContactPage() {
       icon: <Phone className="h-6 w-6" />,
       title: "फोन कॉल | Phone Call",
       subtitle: "तुरंत बात करें | Talk Immediately",
-      value: "+91 98765 43210",
+      value: `${process.env.NEXT_PUBLIC_PHONE}`,
       description: "सुबह 8 बजे से रात 9 बजे तक | 8 AM to 9 PM daily",
       action: "कॉल करें | Call Now",
     },
@@ -59,7 +59,7 @@ export default function ContactPage() {
       icon: <MessageCircle className="h-6 w-6" />,
       title: "WhatsApp चैट | WhatsApp Chat",
       subtitle: "त्वरित उत्तर | Quick Response",
-      value: "+91 98765 43210",
+      value: `${process.env.NEXT_PUBLIC_PHONE}`,
       description: "24x7 उपलब्ध | Available 24x7",
       action: "मैसेज भेजें | Send Message",
     },
@@ -67,7 +67,7 @@ export default function ContactPage() {
       icon: <Mail className="h-6 w-6" />,
       title: "ईमेल | Email",
       subtitle: "विस्तृत जानकारी | Detailed Information",
-      value: "info@bharatiyakisansahayak.in",
+      value: `${process.env.NEXT_PUBLIC_EMAIL}`,
       description: "24 घंटे में जवाब | Response within 24 hours",
       action: "ईमेल भेजें | Send Email",
     },
@@ -77,7 +77,7 @@ export default function ContactPage() {
     {
       city: "मुंबई मुख्यालय | Mumbai Headquarters",
       address: "Shop No. 15, Agriculture Equipment Market,\nAndheri West, Mumbai - 400058",
-      phone: "+91 98765 43210",
+      phone: `${process.env.NEXT_PUBLIC_PHONE}`,
       hours: "सुबह 9 - शाम 7 | 9 AM - 7 PM",
       services: ["मुख्य गोदाम", "मरम्मत केंद्र", "स्पेयर पार्ट्स"],
     },
@@ -196,7 +196,7 @@ export default function ContactPage() {
                         फोन | Phone *
                       </label>
                       <Input
-                        placeholder="+91 98765 43210"
+                        placeholder={process.env.NEXT_PUBLIC_PHONE}
                         value={formData.phone}
                         onChange={(e) => handleInputChange("phone", e.target.value)}
                         required
@@ -204,7 +204,7 @@ export default function ContactPage() {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-emerald-800 mb-2">

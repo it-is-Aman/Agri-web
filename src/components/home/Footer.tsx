@@ -76,9 +76,9 @@ const Footer = () => {
                         <div>
                             <h3 className="font-semibold mb-4 text-amber-200">संपर्क | Contact</h3>
                             <ul className="space-y-2 text-sm text-emerald-100">
-                                <li>Phone: +91 98765 43210</li>
-                                <li>Email: info@bharatiyakisansahayak.in</li>
-                                <li>WhatsApp: +91 98765 43210</li>
+                                <li>Phone: {process.env.NEXT_PUBLIC_PHONE}</li>
+                                <li>Email: {process.env.NEXT_PUBLIC_EMAIL}</li>
+                                <li>WhatsApp: {process.env.NEXT_PUBLIC_PHONE}</li>
                                 <li>Address: Mumbai, Maharashtra, India</li>
                             </ul>
                         </div>

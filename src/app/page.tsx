@@ -354,7 +354,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary" className="bg-white text-emerald-700 hover:bg-amber-50 border-2 border-amber-300 shadow-lg hover-lift">
               <Phone className="mr-2 h-5 w-5" />
-              अभी कॉल करें | Call Now: +91 98765 43210
+              अभी कॉल करें | Call Now: {process.env.NEXT_PUBLIC_PHONE}
             </Button>
             <Button
               size="lg"

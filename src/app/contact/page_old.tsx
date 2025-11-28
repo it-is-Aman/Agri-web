@@ -51,7 +51,7 @@ export default function ContactPage() {
       icon: <Phone className="h-6 w-6" />,
       title: "Phone Support",
       description: "Speak directly with our experts",
-      contact: "+91 98765 43210",
+      contact: `${process.env.NEXT_PUBLIC_PHONE}`,
       action: "Call Now",
       available: "Mon-Sat, 9 AM - 6 PM",
     },
@@ -59,7 +59,7 @@ export default function ContactPage() {
       icon: <MessageCircle className="h-6 w-6" />,
       title: "WhatsApp",
       description: "Quick responses via WhatsApp",
-      contact: "+91 98765 43210",
+      contact: `${process.env.NEXT_PUBLIC_PHONE}`,
       action: "Message Us",
       available: "24/7 Available",
     },
@@ -77,7 +77,7 @@ export default function ContactPage() {
     {
       city: "Mumbai",
       address: "Shop No. 15, Agriculture Market, Andheri East, Mumbai - 400069",
-      phone: "+91 98765 43210",
+      phone: `${process.env.NEXT_PUBLIC_PHONE}`,
       timing: "Mon-Sat: 9 AM - 6 PM",
     },
     {
@@ -331,7 +331,7 @@ export default function ContactPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary">
               <Phone className="mr-2 h-5 w-5" />
-              Call: +91 98765 43210
+              Call: {process.env.NEXT_PUBLIC_PHONE}
             </Button>
             <Button
               size="lg"

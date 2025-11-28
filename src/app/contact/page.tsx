@@ -51,7 +51,7 @@ export default function ContactPage() {
       icon: <Phone className="h-6 w-6" />,
       title: "फोन कॉल | Phone Call",
       subtitle: "तुरंत बात करें | Talk Immediately",
-      value: "+91 98765 43210",
+      value: `${process.env.NEXT_PUBLIC_PHONE}`,
       description: "सुबह 8 बजे से रात 9 बजे तक | 8 AM to 9 PM daily",
       action: "कॉल करें | Call Now",
     },
@@ -59,7 +59,7 @@ export default function ContactPage() {
       icon: <MessageCircle className="h-6 w-6" />,
       title: "WhatsApp चैट | WhatsApp Chat",
       subtitle: "त्वरित उत्तर | Quick Response",
-      value: "+91 98765 43210",
+      value: `${process.env.NEXT_PUBLIC_PHONE}`,
       description: "24x7 उपलब्ध | Available 24x7",
       action: "मैसेज भेजें | Send Message",
     },
@@ -67,7 +67,7 @@ export default function ContactPage() {
       icon: <Mail className="h-6 w-6" />,
       title: "ईमेल | Email",
       subtitle: "विस्तृत जानकारी | Detailed Information",
-      value: "info@bharatiyakisansahayak.in",
+      value: `${process.env.NEXT_PUBLIC_EMAIL}`,
       description: "24 घंटे में जवाब | Response within 24 hours",
       action: "ईमेल भेजें | Send Email",
     },
@@ -77,7 +77,7 @@ export default function ContactPage() {
     {
       city: "मुंबई मुख्यालय | Mumbai Headquarters",
       address: "Shop No. 15, Agriculture Equipment Market,\nAndheri West, Mumbai - 400058",
-      phone: "+91 98765 43210",
+      phone: `${process.env.NEXT_PUBLIC_PHONE}`,
       hours: "सुबह 9 - शाम 7 | 9 AM - 7 PM",
       services: ["मुख्य गोदाम", "मरम्मत केंद्र", "स्पेयर पार्ट्स"],
     },
@@ -190,7 +190,7 @@ export default function ContactPage() {
                         फोन | Phone *
                       </label>
                       <Input
-                        placeholder="+91 98765 43210"
+                        placeholder={process.env.NEXT_PUBLIC_PHONE}
                         value={formData.phone}
                         onChange={(e) => handleInputChange("phone", e.target.value)}
                         required
@@ -324,14 +324,15 @@ export default function ContactPage() {
           </CardHeader>
           <CardContent>
             <div className="bg-gradient-to-br from-emerald-100 to-amber-100 rounded-2xl p-8 text-center border-2 border-emerald-200">
-              <MapPin className="h-16 w-16 text-emerald-600 mx-auto mb-4" />
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4184.093576445846!2d77.44827072603661!3d28.562693037247723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ceeb815f53569%3A0x8bdcafbbc7aac2f5!2sNoida%20Extension%2C%20Ace%20City%20Noida%20Extension%2C%20Sector%201%2C%20Aimnabad%2C%20Bisrakh%20Jalalpur%2C%20Greater%20Noida%2C%20Bisrakh%20Jalalpur%2C%20Uttar%20Pradesh%20201318!5e1!3m2!1sen!2sin!4v1764353834716!5m2!1sen!2sin" width="600" height="450" style={{border:0}} loading="lazy" ></iframe>
+              {/* <MapPin className="h-16 w-16 text-emerald-600 mx-auto mb-4" />
               <h3 className="text-xl font-bold text-emerald-700 mb-2">Google Maps</h3>
               <p className="text-emerald-600 mb-4">
                 व्यावस्थिक मानचित्र यहाँ एम्बेड होगा | Interactive map will be embedded here
               </p>
               <Button variant="outline" className="border-emerald-600 text-emerald-700 hover:bg-emerald-50">
                 मानचित्र में देखें | View on Maps
-              </Button>
+              </Button> */}
             </div>
           </CardContent>
         </Card>

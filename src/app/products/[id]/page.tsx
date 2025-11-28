@@ -194,7 +194,7 @@ export default function ProductPage({ params }: ProductPageProps) {
               </Button>
               <Button variant="outline" size="lg" className="w-full bg-transparent">
                 <Phone className="mr-2 h-5 w-5" />
-                Call for Price: +91 98765 43210
+                Call for Price: {process.env.NEXT_PUBLIC_PHONE}
               </Button>
             </div>
           </div>
