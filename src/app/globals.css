@@ -121,6 +121,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
@@ -129,42 +130,307 @@
 
 /* Custom Agriculture Theme Classes */
 @layer utilities {
+
+  /* Primary Colors - Enhanced for Indian Aesthetic */
   .bg-agriculture-primary {
     background-color: #2E7D32;
   }
+
   .bg-agriculture-secondary {
     background-color: #6D4C41;
   }
+
   .bg-agriculture-accent {
     background-color: #FBC02D;
   }
+
+  .bg-saffron {
+    background-color: #FF9933;
+  }
+
+  .bg-deep-green {
+    background-color: #138808;
+  }
+
+  .bg-earth-brown {
+    background-color: #8B4513;
+  }
+
+  /* Text Colors */
   .text-agriculture-primary {
     color: #2E7D32;
   }
+
   .text-agriculture-secondary {
     color: #6D4C41;
   }
+
   .text-agriculture-accent {
     color: #FBC02D;
   }
+
+  .text-saffron {
+    color: #FF9933;
+  }
+
+  .text-deep-green {
+    color: #138808;
+  }
+
+  /* Border Colors */
   .border-agriculture-primary {
     border-color: #2E7D32;
   }
+
   .border-agriculture-secondary {
     border-color: #6D4C41;
   }
+
   .border-agriculture-accent {
     border-color: #FBC02D;
   }
-  
+
+  .border-saffron {
+    border-color: #FF9933;
+  }
+
   /* Indian-inspired gradients */
   .bg-indian-earth {
     background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 50%, #FBC02D 100%);
   }
+
   .bg-indian-soil {
     background: linear-gradient(135deg, #6D4C41 0%, #8D6E63 50%, #A1887F 100%);
   }
+
   .bg-indian-harvest {
     background: linear-gradient(135deg, #FBC02D 0%, #FFD54F 50%, #FFF176 100%);
+  }
+
+  .bg-indian-tricolor {
+    background: linear-gradient(to bottom, #FF9933 0%, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%, #138808 100%);
+  }
+
+  .bg-sunrise {
+    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FDC830 100%);
+  }
+
+  .bg-monsoon {
+    background: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%);
+  }
+
+  /* Animated Gradients */
+  .bg-animated-gradient {
+    background: linear-gradient(-45deg, #2E7D32, #4CAF50, #FBC02D, #FF9933);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Pattern Backgrounds */
+  .pattern-dots {
+    background-image: radial-gradient(circle, #2E7D32 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .pattern-grid {
+    background-image:
+      linear-gradient(rgba(46, 125, 50, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(46, 125, 50, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .pattern-diagonal {
+    background-image: repeating-linear-gradient(45deg,
+        transparent,
+        transparent 10px,
+        rgba(46, 125, 50, 0.05) 10px,
+        rgba(46, 125, 50, 0.05) 20px);
+  }
+
+  /* Hover Effects */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .hover-glow {
+    transition: box-shadow 0.3s ease;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 20px rgba(46, 125, 50, 0.5);
+  }
+
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  /* Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out;
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-bounce-subtle {
+    animation: bounceSubtle 2s ease-in-out infinite;
+  }
+
+  @keyframes bounceSubtle {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulseSlow 3s ease-in-out infinite;
+  }
+
+  @keyframes pulseSlow {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  /* Glass Morphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Trust Badges */
+  .trust-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+    color: white;
+    border-radius: 9999px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+  }
+
+  /* Indian Decorative Elements */
+  .border-indian {
+    border-image: linear-gradient(to right, #FF9933, #FFFFFF, #138808) 1;
+  }
+
+  .divider-indian {
+    height: 3px;
+    background: linear-gradient(to right, #FF9933 0%, #FFFFFF 50%, #138808 100%);
+    margin: 2rem 0;
+  }
+
+  /* Responsive Typography */
+  .text-responsive-xl {
+    font-size: clamp(2rem, 5vw, 4rem);
+  }
+
+  .text-responsive-lg {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .text-responsive-md {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+  }
+
+  /* Accessibility */
+  .focus-visible-ring {
+    outline: 2px solid #2E7D32;
+    outline-offset: 2px;
+  }
+
+  /* Performance Optimizations */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 }

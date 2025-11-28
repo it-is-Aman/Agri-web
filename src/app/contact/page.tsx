@@ -98,42 +98,16 @@ export default function ContactPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50/30 via-white to-amber-50/30">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <Link href="/" className="flex items-center space-x-2">
-                <ArrowLeft className="h-5 w-5" />
-                <Leaf className="h-8 w-8 text-emerald-600" />
-                <span className="text-xl font-bold text-foreground">{process.env.NEXT_PUBLIC_NAME_HINDI}</span>
-              </Link>
-            </div>
-
-            <div className="flex items-center space-x-3">
-              <Button variant="outline" size="sm" className="hidden sm:flex items-center space-x-2 bg-transparent">
-                <Phone className="h-4 w-4" />
-                <span>+91 98765 43210</span>
-              </Button>
-              <Button size="sm" className="bg-emerald-600 hover:bg-emerald-700 text-white border border-amber-300">
-                <MessageCircle className="h-4 w-4 mr-2" />
-                WhatsApp करें
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50/30 via-white to-amber-50/30 pattern-diagonal">
       <div className="container mx-auto px-4 py-8">
         {/* Hero Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-foreground mb-4">
-            <span className="bg-gradient-to-r from-emerald-700 to-green-700 bg-clip-text text-transparent">
+        <div className="text-center mb-12 animate-fade-in">
+          <h1 className="text-responsive-lg font-bold text-foreground mb-4">
+            <span className="text-emerald-700">
               संपर्क करें
             </span>
             <br />
-            <span className="text-amber-700">Contact Us</span>
+            <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Contact Us</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             हमसे संपर्क करें और अपनी कृषि उपकरण की जरूरतों के बारे में बात करें
@@ -145,13 +119,12 @@ export default function ContactPage() {
         {/* Contact Methods */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {contactMethods.map((method, index) => (
-            <Card key={index} className="text-center hover:shadow-2xl transition-all duration-300 border-2 border-emerald-200 hover:border-emerald-400 rounded-3xl bg-gradient-to-br from-white via-emerald-50/50 to-amber-50/30 hover:scale-105">
+            <Card key={index} className="text-center hover-lift border-2 border-emerald-200 hover:border-emerald-400 rounded-3xl bg-gradient-to-br from-white via-emerald-50/50 to-amber-50/30 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
               <CardHeader>
-                <div className="mx-auto mb-4 p-4 bg-gradient-to-br from-emerald-100 to-amber-100 rounded-full w-fit border-2 border-emerald-300 shadow-lg">
+                <div className="mx-auto mb-4 p-4 bg-gradient-to-br from-emerald-100 to-amber-100 rounded-full w-fit border-2 border-emerald-300 shadow-lg hover-glow">
                   <div className="text-emerald-700">{method.icon}</div>
                 </div>
-                <CardTitle className="text-xl flex items-center gap-2 justify-center">
-                  <Leaf className="h-5 w-5 text-emerald-600" />
+                <CardTitle className="text-xl">
                   {method.title}
                 </CardTitle>
                 <CardDescription className="text-emerald-800 font-medium">{method.subtitle}</CardDescription>
@@ -161,14 +134,9 @@ export default function ContactPage() {
                   {method.value}
                 </div>
                 <p className="text-sm text-emerald-900">{method.description}</p>
-                <div className="relative group">
-                  <Button className="bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white rounded-full border border-amber-300 shadow-md">
-                    {method.action}
-                  </Button>
-                  <span className="absolute left-1/2 -translate-x-1/2 mt-2 px-3 py-2 text-xs bg-emerald-800 text-white rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                    तुरंत जवाब मिलेगा | Get immediate response
-                  </span>
-                </div>
+                <Button className="bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white rounded-full border border-amber-300 shadow-md hover-lift">
+                  {method.action}
+                </Button>
               </CardContent>
             </Card>
           ))}
@@ -230,7 +198,7 @@ export default function ContactPage() {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-emerald-800 mb-2">
@@ -372,9 +340,10 @@ export default function ContactPage() {
       {/* Floating WhatsApp Button */}
       <div className="fixed bottom-6 right-6 z-50">
         <div className="relative group">
-          <Button size="lg" className="rounded-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white shadow-2xl border-2 border-amber-300 animate-pulse">
+          <Button size="lg" className="rounded-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white shadow-2xl border-2 border-amber-300 animate-bounce-subtle hover-glow">
             <MessageCircle className="h-6 w-6" />
           </Button>
+          <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20"></span>
           <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 px-3 py-2 text-sm bg-emerald-800 text-white rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
             तुरंत WhatsApp करें | WhatsApp Now
           </span>

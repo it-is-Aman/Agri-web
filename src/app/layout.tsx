@@ -5,6 +5,8 @@ import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
+import Header from "@/components/home/Header"
+import Footer from "@/components/home/Footer"
 
 export const metadata: Metadata = {
   title: {
@@ -69,7 +71,7 @@ export const metadata: Metadata = {
     canonical: "https://agritools-india.vercel.app",
   },
   category: "Agriculture",
-    generator: 'v0.app'
+  generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -86,7 +88,11 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-        <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Header />
+          {children}
+          <Footer />
+        </Suspense>
         <Analytics />
       </body>
     </html>

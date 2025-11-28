@@ -344,32 +344,6 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <Link href="/blog" className="flex items-center space-x-2">
-                <ArrowLeft className="h-5 w-5" />
-                <Leaf className="h-8 w-8 text-primary" />
-                <span className="text-xl font-bold text-foreground">AgriTools India</span>
-              </Link>
-            </div>
-
-            <div className="flex items-center space-x-3">
-              <Button variant="outline" size="sm" className="hidden sm:flex items-center space-x-2 bg-transparent">
-                <Phone className="h-4 w-4" />
-                <span>+91 98765 43210</span>
-              </Button>
-              <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white">
-                <MessageCircle className="h-4 w-4 mr-2" />
-                WhatsApp
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
       <article className="container mx-auto px-4 py-8">
         {/* Article Header */}
         <div className="max-w-4xl mx-auto mb-8">

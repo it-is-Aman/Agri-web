@@ -69,31 +69,6 @@ export default function AccessoriesPage() {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100">
-            {/* Header */}
-            <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
-                <div className="container mx-auto px-4 py-4">
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-4">
-                            <Link href="/products" className="flex items-center space-x-2">
-                                <ArrowLeft className="h-5 w-5" />
-                                <Leaf className="h-8 w-8 text-green-600" />
-                                <span className="text-xl font-bold text-foreground">Accessories</span>
-                            </Link>
-                        </div>
-                        <div className="flex items-center space-x-3">
-                            <Button variant="outline" size="sm" className="hidden sm:flex items-center space-x-2 bg-transparent">
-                                <Phone className="h-4 w-4" />
-                                <span>+91 98765 43210</span>
-                            </Button>
-                            <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white border border-amber-300">
-                                <MessageCircle className="h-4 w-4 mr-2" />
-                                WhatsApp करें
-                            </Button>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
             <div className="container mx-auto px-4 py-8">
                 <div className="mb-8 text-center">
                     <h1 className="text-4xl font-bold text-foreground mb-4">

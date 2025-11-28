@@ -172,51 +172,16 @@ export default function ProductsPage() {
 		})
 
 	return (
-		<div className="min-h-screen bg-gradient-to-br from-emerald-50/30 via-white to-amber-50/30">
-			{/* Header */}
-			<header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
-				<div className="container mx-auto px-4 py-4">
-					<div className="flex items-center justify-between">
-						<div className="flex items-center space-x-4">
-							<Link href="/" className="flex items-center space-x-2">
-								<ArrowLeft className="h-5 w-5" />
-								<Leaf className="h-8 w-8 text-emerald-600" />
-								<span className="text-xl font-bold text-foreground">
-									{process.env.NEXT_PUBLIC_NAME_HINDI}
-								</span>
-							</Link>
-						</div>
-
-						<div className="flex items-center space-x-3">
-							<Button
-								variant="outline"
-								size="sm"
-								className="hidden sm:flex items-center space-x-2 bg-transparent"
-							>
-								<Phone className="h-4 w-4" />
-								<span>+91 98765 43210</span>
-							</Button>
-							<Button
-								size="sm"
-								className="bg-emerald-600 hover:bg-emerald-700 text-white border border-amber-300"
-							>
-								<MessageCircle className="h-4 w-4 mr-2" />
-								WhatsApp करें
-							</Button>
-						</div>
-					</div>
-				</div>
-			</header>
-
+		<div className="min-h-screen bg-gradient-to-br from-emerald-50/30 via-white to-amber-50/30 pattern-diagonal">
 			<div className="container mx-auto px-4 py-8">
 				{/* Page Header */}
-				<div className="mb-8 text-center">
-					<h1 className="text-4xl font-bold text-foreground mb-4">
-						<span className="bg-gradient-to-r from-emerald-700 to-green-700 bg-clip-text text-transparent">
+				<div className="mb-8 text-center animate-fade-in">
+					<h1 className="text-responsive-lg font-bold text-foreground mb-4">
+						<span className="text-emerald-700">
 							हमारे उत्पाद
 						</span>
 						<br />
-						<span className="text-amber-700">Our Products</span>
+						<span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Our Products</span>
 					</h1>
 					<p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
 						भारतीय किसानों के लिए विशेष रूप से डिज़ाइन किए गए प्रामाणिक कृषि उपकरण खोजें
@@ -281,63 +246,67 @@ export default function ProductsPage() {
 
 				{/* Products Grid */}
 				<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-					{filteredProducts.map((product) => (
+					{filteredProducts.map((product, index) => (
 						<Card
 							key={product.id}
-							className="overflow-hidden hover:shadow-xl transition-shadow border-green-700 border-2 rounded-2xl bg-gradient-to-br from-green-50 via-white to-green-100"
+							className="overflow-hidden hover-lift border-2 border-emerald-200 hover:border-emerald-400 rounded-3xl bg-gradient-to-br from-white via-emerald-50/50 to-amber-50/30 animate-fade-in"
+							style={{ animationDelay: `${index * 0.1}s` }}
 						>
-							<div className="relative overflow-hidden">
+							<div className="relative aspect-[4/3] overflow-hidden">
 								<Image
 									src={"/img/" + product.image.replace("/", "")}
 									alt={product.name}
-									className="w-full h-full p-4 object-cover hover:scale-105 transition-transform duration-300 rounded-2xl "
+									className="w-full h-full object-cover hover-scale"
 									width={500}
 									height={300}
 								/>
 								{!product.inStock && (
-									<div className="absolute top-2 right-2">
-										<Badge variant="destructive">Out of Stock</Badge>
+									<div className="absolute top-3 right-3">
+										<Badge variant="destructive" className="shadow-lg">Out of Stock</Badge>
 									</div>
 								)}
 								{product.originalPrice && (
-									<div className="absolute top-2 left-2">
-										<Badge className="bg-red-500 text-white">
+									<div className="absolute top-3 left-3 flex flex-col gap-2">
+										<Badge className="bg-gradient-to-r from-red-500 to-orange-500 text-white shadow-lg">
 											Save ₹
 											{Number.parseInt(
 												product.originalPrice.replace(/[₹,]/g, "")
 											) -
 												Number.parseInt(product.price.replace(/[₹,]/g, ""))}
 										</Badge>
-									</div>
-								)}
-								<Leaf className="absolute bottom-2 right-2 h-7 w-7 text-green-600 bg-white rounded-full p-1 shadow-md" />
-							</div>
-							<CardHeader>
-								<div className="flex items-start justify-between">
-									<div>
-										<CardTitle className="text-lg line-clamp-2 flex items-center gap-2">
-											<Leaf className="h-5 w-5 text-green-600" />
-											{product.name}
-										</CardTitle>
-										<Badge
-											variant="secondary"
-											className="mt-1 text-xs bg-green-100 text-green-800 border-green-300"
-										>
-											{product.category}
+										<Badge className="bg-gradient-to-r from-emerald-600 to-green-600 text-white shadow-lg">
+											{Math.round(((Number.parseInt(product.originalPrice.replace(/[₹,]/g, "")) - Number.parseInt(product.price.replace(/[₹,]/g, ""))) / Number.parseInt(product.originalPrice.replace(/[₹,]/g, ""))) * 100)}% OFF
 										</Badge>
 									</div>
+								)}
+								<Leaf className="absolute top-3 right-3 h-8 w-8 text-emerald-600 bg-white/90 rounded-full p-1.5 shadow-lg border border-emerald-300" />
+							</div>
+							<CardHeader>
+								<CardTitle className="text-lg line-clamp-2">
+									{product.name}
+								</CardTitle>
+								<div className="flex items-center gap-2 mt-2">
+									<Badge
+										variant="secondary"
+										className="text-xs bg-gradient-to-r from-emerald-100 to-amber-100 text-emerald-800 border-emerald-300"
+									>
+										{product.category}
+									</Badge>
+									<Badge className="text-xs bg-saffron text-white">
+										{product.origin}
+									</Badge>
 								</div>
-								<CardDescription className="line-clamp-2 text-green-900">
+								<CardDescription className="line-clamp-3 text-emerald-900 mt-2">
 									{product.description}
 								</CardDescription>
 							</CardHeader>
 							<CardContent className="space-y-4">
-								<div className="flex flex-wrap gap-1">
-									{product.features.slice(0, 3).map((feature, index) => (
+								<div className="flex flex-wrap gap-2">
+									{product.features.slice(0, 3).map((feature, idx) => (
 										<Badge
-											key={index}
+											key={idx}
 											variant="outline"
-											className="text-xs bg-green-100 text-green-800 border-green-300"
+											className="text-xs bg-emerald-50 text-emerald-800 border-emerald-300"
 										>
 											{feature}
 										</Badge>
@@ -345,49 +314,42 @@ export default function ProductsPage() {
 									{product.features.length > 3 && (
 										<Badge
 											variant="outline"
-											className="text-xs bg-green-100 text-green-800 border-green-300"
+											className="text-xs bg-amber-50 text-amber-800 border-amber-300"
 										>
 											+{product.features.length - 3} more
 										</Badge>
 									)}
 								</div>
-								<div className="flex items-center justify-between">
-									<div className="space-y-1">
-										<div className="flex items-center space-x-2">
-											<span className="text-xl font-bold text-green-700">
+								<div className="space-y-3">
+									<div className="flex items-center justify-between">
+										<div>
+											<span className="text-2xl font-bold text-emerald-700">
 												{product.price}
 											</span>
 											{product.originalPrice && (
-												<span className="text-sm text-muted-foreground line-through">
+												<span className="text-sm text-muted-foreground line-through ml-2">
 													{product.originalPrice}
 												</span>
 											)}
 										</div>
 									</div>
-									<div className="flex space-x-2">
-										<Link href={`/products/${product.id}`}>
+									<div className="flex gap-2">
+										<Link href={`/products/${product.id}`} className="flex-1">
 											<Button
 												variant="outline"
 												size="sm"
-												className="bg-green-600 hover:bg-green-700 text-white rounded-full"
+												className="w-full border-emerald-600 text-emerald-700 hover:bg-emerald-50"
 											>
 												View Details
 											</Button>
 										</Link>
-										<div className="relative group">
-											<Button
-												size="sm"
-												disabled={!product.inStock}
-												className="bg-green-600 hover:bg-green-700 text-white rounded-full"
-											>
-												{product.inStock ? "Enquire Now" : "Out of Stock"}
-											</Button>
-											{product.inStock && (
-												<span className="absolute left-1/2 -translate-x-1/2 mt-2 px-2 py-1 text-xs bg-green-700 text-white rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-													Get expert advice or a quick quote
-												</span>
-											)}
-										</div>
+										<Button
+											size="sm"
+											disabled={!product.inStock}
+											className="flex-1 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white rounded-full border border-amber-300 shadow-md hover-lift disabled:opacity-50"
+										>
+											{product.inStock ? "Enquire Now" : "Out of Stock"}
+										</Button>
 									</div>
 								</div>
 							</CardContent>
@@ -414,23 +376,24 @@ export default function ProductsPage() {
 				)}
 
 				{/* CTA Section */}
-				<div className="mt-16 bg-primary text-primary-foreground rounded-lg p-8 text-center">
-					<h2 className="text-2xl font-bold mb-4">
-						Can&apos;t Find What You&apos;re Looking For?
+				<div className="mt-16 bg-gradient-to-r from-emerald-700 via-green-700 to-emerald-800 text-white rounded-2xl p-8 text-center shadow-xl animate-fade-in">
+					<h2 className="text-responsive-md font-bold mb-4">
+						क्या आप जो खोज रहे हैं वह नहीं मिल रहा? | Can't Find What You're Looking For?
 					</h2>
-					<p className="mb-6 opacity-90">
-						Contact us directly for custom requirements or specific product
-						inquiries
+					<p className="mb-6 opacity-90 max-w-2xl mx-auto">
+						कस्टम आवश्यकताओं या विशिष्ट उत्पाद पूछताछ के लिए सीधे हमसे संपर्क करें
+						<br />
+						<em className="text-amber-200">Contact us directly for custom requirements or specific product inquiries</em>
 					</p>
 					<div className="flex flex-col sm:flex-row gap-4 justify-center">
-						<Button size="lg" variant="secondary">
+						<Button size="lg" variant="secondary" className="bg-white text-emerald-700 hover:bg-amber-50 border-2 border-amber-300 shadow-lg hover-lift">
 							<Phone className="mr-2 h-5 w-5" />
 							Call: +91 98765 43210
 						</Button>
 						<Button
 							size="lg"
 							variant="outline"
-							className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+							className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-emerald-700 shadow-lg hover-lift"
 						>
 							<MessageCircle className="mr-2 h-5 w-5" />
 							WhatsApp Us
@@ -441,9 +404,12 @@ export default function ProductsPage() {
 
 			{/* Floating WhatsApp Button */}
 			<div className="fixed bottom-6 right-6 z-50">
-				<Button size="lg" className="rounded-full bg-green-500 hover:bg-green-600 text-white shadow-lg">
-					<MessageCircle className="h-6 w-6" />
-				</Button>
+				<div className="relative group">
+					<Button size="lg" className="rounded-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white shadow-2xl border-2 border-amber-300 animate-bounce-subtle hover-glow">
+						<MessageCircle className="h-6 w-6" />
+					</Button>
+					<span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20"></span>
+				</div>
 			</div>
 		</div>
 	)
