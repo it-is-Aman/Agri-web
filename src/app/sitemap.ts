@@ -1,57 +1,23 @@
 import type { MetadataRoute } from "next"
+import { siteConfig } from "@/config/site"
+import { localePath, locales } from "@/i18n/config"
+import { getProducts } from "@/lib/catalog"
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://agritools-india.vercel.app"
+const pages = ["/", "/shop", "/repair", "/dealers", "/about", "/contact"]
 
-  return [
-    {
-      url: baseUrl,
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const products = await getProducts()
+  const paths = [...pages, ...products.map((p) => `/shop/${p.id}`)]
+
+  return paths.flatMap((path) =>
+    locales.map((lang) => ({
+      url: `${siteConfig.url}${localePath(lang, path)}`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/products`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    // Blog posts
-    {
-      url: `${baseUrl}/blog/1`,
-      lastModified: new Date("2024-01-15"),
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blog/2`,
-      lastModified: new Date("2024-01-10"),
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-  ]
+      changeFrequency: path.startsWith("/shop") ? ("daily" as const) : ("monthly" as const),
+      priority: path === "/" ? 1 : path === "/shop" ? 0.9 : 0.7,
+      alternates: {
+        languages: Object.fromEntries(locales.map((l) => [l, `${siteConfig.url}${localePath(l, path)}`])),
+      },
+    })),
+  )
 }

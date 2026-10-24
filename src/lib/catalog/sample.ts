@@ -1,0 +1,21 @@
+import { parseCsv, rowsToProducts } from "./sheet"
+
+// Used when PRODUCTS_SHEET_CSV_URL is not set. Same columns as the Google Sheet,
+// so this doubles as a working example (docs/price-sheet-template.csv mirrors it).
+// Prices below are placeholders.
+export const sampleCsv = `id,name,name_hindi,category,subcategory,price,mrp,in_stock,compatible_with,description,description_hindi,image,featured,hidden
+trimmer-head-auto-cut,Trimmer Head – Bump Feed (Compatible),ट्रिमर हेड – बम्प फ़ीड,spare-parts,Trimmer Head,450,600,yes,"FS 55, FS 120, FS 250","Bump-feed trimmer head, M10 thread. Compatible replacement.","बम्प-फ़ीड ट्रिमर हेड, M10 थ्रेड। कम्पैटिबल पार्ट।",/img/brush-cutter-replacement-blades-set.jpg,yes,
+blade-3t-255mm,3-Tooth Grass Blade 255mm,3 दांत ब्लेड 255mm,spare-parts,Blade,220,300,yes,"FS 120, FS 230, FS 250","Hardened steel 3T blade for grass and weeds.","घास और खरपतवार के लिए सख़्त स्टील का 3 दांत वाला ब्लेड।",/img/brush-cutter-replacement-blades-set.jpg,yes,
+carburettor-fs-120,Carburettor (Compatible),कार्बोरेटर (कम्पैटिबल),spare-parts,Carburettor,850,,yes,"FS 120, FS 250","Compatible carburettor for 30–40cc brush cutters.","30–40cc ब्रश कटर के लिए कम्पैटिबल कार्बोरेटर।",/img/brush-cutter-engine-specifications.jpg,yes,
+carburettor-ms-180,Carburettor – Chainsaw (Compatible),कार्बोरेटर – चेनसॉ,spare-parts,Carburettor,950,,no,"MS 170, MS 180","Compatible carburettor for small chainsaws.","छोटे चेनसॉ के लिए कम्पैटिबल कार्बोरेटर।",/img/brush-cutter-close-up-details.jpg,no,
+recoil-starter-fs-55,Recoil Starter Assembly,रिकॉइल स्टार्टर,spare-parts,Starter,380,450,yes,"FS 38, FS 55","Complete pull-start assembly with rope.","रस्सी के साथ पूरा स्टार्टर सेट।",/img/brush-cutter-engine-specifications.jpg,no,
+spark-plug-bpmr7a,Spark Plug (BPMR7A type),स्पार्क प्लग,spare-parts,Spark Plug,120,150,yes,"FS 55, FS 120, MS 180, MS 250","Standard spark plug for most 2-stroke brush cutters and chainsaws.","ज़्यादातर 2-स्ट्रोक ब्रश कटर और चेनसॉ के लिए स्पार्क प्लग।",/img/brush-cutter-close-up-details.jpg,no,
+trimmer-line-3mm-15m,Trimmer Line 3mm Square – 15m,ट्रिमर लाइन 3mm – 15 मीटर,accessories,Trimmer Line,180,250,yes,,"Heavy-duty square nylon line for thick grass.","घनी घास के लिए मज़बूत चौकोर नायलॉन लाइन।",/img/compact-brush-cutter-small-farming-tool.jpg,yes,
+chainsaw-chain-18in,Saw Chain 18" (3/8 LP),चेनसॉ चेन 18 इंच,accessories,Saw Chain,650,800,yes,"MS 250, MS 382","Semi-chisel chain, 18 inch bar, 3/8 low profile.","सेमी-चिज़ल चेन, 18 इंच बार, 3/8 लो प्रोफ़ाइल।",/img/brush-cutter-close-up-details.jpg,yes,
+harness-double-shoulder,Double Shoulder Harness,डबल शोल्डर हार्नेस,accessories,Harness,550,700,no,,"Padded harness that spreads the brush cutter's weight across both shoulders.","गद्देदार हार्नेस, ब्रश कटर का वज़न दोनों कंधों पर बाँटता है।",/img/farmer-using-brush-cutter-in-green-agricultural-fi.jpg,no,
+brush-cutter-52cc,Brush Cutter 52cc (2-Stroke),ब्रश कटर 52cc (2-स्ट्रोक),machines,Brush Cutter,9500,11000,yes,,"Side-pack petrol brush cutter for grass, weeds and light bushes. Comes with 3T blade and nylon head.","घास, खरपतवार और हल्की झाड़ियों के लिए पेट्रोल ब्रश कटर। 3T ब्लेड और नायलॉन हेड के साथ।",/img/professional-brush-cutter-in-agricultural-field.jpg,yes,
+knapsack-sprayer-16l,Battery Knapsack Sprayer 16L,बैटरी स्प्रेयर 16 लीटर,machines,Sprayer,3200,3800,yes,,"12V battery sprayer with adjustable nozzle and 16 litre tank.","12V बैटरी स्प्रेयर, एडजस्टेबल नोज़ल और 16 लीटर टैंक।",/img/agricultural-sprayer-equipment-for-farming.jpg,no,
+power-tiller-7hp,Power Tiller 7HP,पावर टिलर 7HP,machines,Power Tiller,,,no,,"Compact diesel tiller for small and medium farms. Ask for current price and availability.","छोटे और मध्यम खेतों के लिए डीज़ल टिलर। मौजूदा दाम और उपलब्धता के लिए पूछें।",/img/power-tiller-machine-working-in-farm-soil.jpg,no,
+`
+
+export const sampleProducts = rowsToProducts(parseCsv(sampleCsv))

@@ -1,84 +1,47 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:is(.dark *));
-
+/*
+ * "Field Manual" — machinery service-manual aesthetic. See docs/DESIGN.md before changing.
+ * Signal yellow = the one thing to press. Ink + bone carry everything else.
+ */
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.2 0 0);
-  --card: oklch(0.97 0.01 120);
-  --card-foreground: oklch(0.2 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0 0);
-  /* Agriculture Theme Colors - Primary: Green (#2E7D32) */
-  --primary: oklch(0.45 0.15 145);
-  --primary-foreground: oklch(1 0 0);
-  /* Agriculture Theme Colors - Secondary: Earth Brown (#6D4C41) */
-  --secondary: oklch(0.35 0.08 45);
-  --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.97 0.01 120);
-  --muted-foreground: oklch(0.5 0 0);
-  /* Agriculture Theme Colors - Accent: Yellow (#FBC02D) */
-  --accent: oklch(0.75 0.12 85);
-  --accent-foreground: oklch(0.2 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.9 0.005 120);
-  --input: oklch(1 0 0);
-  --ring: oklch(0.45 0.15 145);
-  --chart-1: oklch(0.45 0.15 145);
-  --chart-2: oklch(0.35 0.08 45);
-  --chart-3: oklch(0.75 0.12 85);
-  --chart-4: oklch(0.6 0.1 180);
-  --chart-5: oklch(0.55 0.12 30);
-  --radius: 0.75rem;
-  --sidebar: oklch(0.97 0.01 120);
-  --sidebar-foreground: oklch(0.2 0 0);
-  --sidebar-primary: oklch(0.45 0.15 145);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.35 0.08 45);
-  --sidebar-accent-foreground: oklch(1 0 0);
-  --sidebar-border: oklch(0.9 0.005 120);
-  --sidebar-ring: oklch(0.45 0.15 145);
-}
+  --bone: #f3f1ea;
+  --paper: #fbfaf6;
+  --ink: #121210;
+  --graphite: #2a2925;
+  --steel: #66635b;
+  --line: #d9d5ca;
+  --signal: #ffc20e;
+  --signal-deep: #e8ab00;
+  --go: #2b6e2e;
+  --stop: #b8361a;
 
-.dark {
-  --background: oklch(0.1 0 0);
-  --foreground: oklch(0.9 0 0);
-  --card: oklch(0.15 0 0);
-  --card-foreground: oklch(0.9 0 0);
-  --popover: oklch(0.15 0 0);
-  --popover-foreground: oklch(0.9 0 0);
-  --primary: oklch(0.55 0.15 145);
-  --primary-foreground: oklch(0.1 0 0);
-  --secondary: oklch(0.25 0 0);
-  --secondary-foreground: oklch(0.9 0 0);
-  --muted: oklch(0.25 0 0);
-  --muted-foreground: oklch(0.6 0 0);
-  --accent: oklch(0.65 0.12 85);
-  --accent-foreground: oklch(0.1 0 0);
-  --destructive: oklch(0.6 0.2 25);
-  --destructive-foreground: oklch(0.9 0 0);
-  --border: oklch(0.25 0 0);
-  --input: oklch(0.25 0 0);
-  --ring: oklch(0.55 0.15 145);
-  --chart-1: oklch(0.55 0.15 145);
-  --chart-2: oklch(0.45 0.08 45);
-  --chart-3: oklch(0.65 0.12 85);
-  --chart-4: oklch(0.65 0.1 180);
-  --chart-5: oklch(0.6 0.12 30);
-  --sidebar: oklch(0.15 0 0);
-  --sidebar-foreground: oklch(0.9 0 0);
-  --sidebar-primary: oklch(0.55 0.15 145);
-  --sidebar-primary-foreground: oklch(0.1 0 0);
-  --sidebar-accent: oklch(0.25 0 0);
-  --sidebar-accent-foreground: oklch(0.9 0 0);
-  --sidebar-border: oklch(0.25 0 0);
-  --sidebar-ring: oklch(0.55 0.15 145);
+  --background: var(--bone);
+  --foreground: var(--ink);
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--bone);
+  --secondary: var(--paper);
+  --secondary-foreground: var(--ink);
+  --muted: #e9e6dc;
+  --muted-foreground: var(--steel);
+  --accent: var(--signal);
+  --accent-foreground: var(--ink);
+  --destructive: var(--stop);
+  --border: var(--line);
+  --input: #c9c4b7;
+  --ring: var(--ink);
+  --radius: 2px;
 }
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-archivo), var(--font-noto-deva), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-teko), var(--font-noto-deva), ui-sans-serif, sans-serif;
+  --font-mono: var(--font-plex-mono), var(--font-noto-deva), ui-monospace, monospace;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -94,27 +57,32 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-bone: var(--bone);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-graphite: var(--graphite);
+  --color-steel: var(--steel);
+  --color-line: var(--line);
+  --color-signal: var(--signal);
+  --color-signal-deep: var(--signal-deep);
+  --color-go: var(--go);
+  --color-stop: var(--stop);
+
+  --radius-sm: 1px;
+  --radius-md: var(--radius);
+  --radius-lg: 4px;
+  --radius-xl: 6px;
+
+  --animate-ticker: ticker 40s linear infinite;
+  @keyframes ticker {
+    to {
+      transform: translateX(-50%);
+    }
+  }
 }
 
 @layer base {
@@ -122,315 +90,97 @@
     @apply border-border outline-ring/50;
   }
 
+  html {
+    font-size: 106.25%; /* 17px base */
+    scroll-padding-top: 7rem;
+  }
+
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    @apply bg-background text-foreground antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 0.92;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  /* Devanagari needs room for matras above/below the line */
+  :lang(hi) h1,
+  :lang(hi) h2,
+  :lang(hi) h3 {
+    line-height: 1.2;
+  }
+
+  ::selection {
+    background: var(--signal);
+    color: var(--ink);
   }
 }
 
-/* Custom Agriculture Theme Classes */
 @layer utilities {
-
-  /* Primary Colors - Enhanced for Indian Aesthetic */
-  .bg-agriculture-primary {
-    background-color: #2E7D32;
-  }
-
-  .bg-agriculture-secondary {
-    background-color: #6D4C41;
-  }
-
-  .bg-agriculture-accent {
-    background-color: #FBC02D;
-  }
-
-  .bg-saffron {
-    background-color: #FF9933;
-  }
-
-  .bg-deep-green {
-    background-color: #138808;
-  }
-
-  .bg-earth-brown {
-    background-color: #8B4513;
-  }
-
-  /* Text Colors */
-  .text-agriculture-primary {
-    color: #2E7D32;
-  }
-
-  .text-agriculture-secondary {
-    color: #6D4C41;
-  }
-
-  .text-agriculture-accent {
-    color: #FBC02D;
-  }
-
-  .text-saffron {
-    color: #FF9933;
-  }
-
-  .text-deep-green {
-    color: #138808;
-  }
-
-  /* Border Colors */
-  .border-agriculture-primary {
-    border-color: #2E7D32;
-  }
-
-  .border-agriculture-secondary {
-    border-color: #6D4C41;
-  }
-
-  .border-agriculture-accent {
-    border-color: #FBC02D;
-  }
-
-  .border-saffron {
-    border-color: #FF9933;
-  }
-
-  /* Indian-inspired gradients */
-  .bg-indian-earth {
-    background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 50%, #FBC02D 100%);
-  }
-
-  .bg-indian-soil {
-    background: linear-gradient(135deg, #6D4C41 0%, #8D6E63 50%, #A1887F 100%);
-  }
-
-  .bg-indian-harvest {
-    background: linear-gradient(135deg, #FBC02D 0%, #FFD54F 50%, #FFF176 100%);
-  }
-
-  .bg-indian-tricolor {
-    background: linear-gradient(to bottom, #FF9933 0%, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%, #138808 100%);
-  }
-
-  .bg-sunrise {
-    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FDC830 100%);
-  }
-
-  .bg-monsoon {
-    background: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%);
-  }
-
-  /* Animated Gradients */
-  .bg-animated-gradient {
-    background: linear-gradient(-45deg, #2E7D32, #4CAF50, #FBC02D, #FF9933);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-  }
-
-  @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-
-    50% {
-      background-position: 100% 50%;
-    }
-
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-  /* Pattern Backgrounds */
-  .pattern-dots {
-    background-image: radial-gradient(circle, #2E7D32 1px, transparent 1px);
-    background-size: 20px 20px;
-  }
-
-  .pattern-grid {
+  /* Blueprint grid paper */
+  .grid-paper {
     background-image:
-      linear-gradient(rgba(46, 125, 50, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(46, 125, 50, 0.1) 1px, transparent 1px);
-    background-size: 30px 30px;
+      linear-gradient(to right, rgb(18 18 16 / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(18 18 16 / 0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 
-  .pattern-diagonal {
-    background-image: repeating-linear-gradient(45deg,
-        transparent,
-        transparent 10px,
-        rgba(46, 125, 50, 0.05) 10px,
-        rgba(46, 125, 50, 0.05) 20px);
+  .grid-paper-dark {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 
-  /* Hover Effects */
-  .hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Small mono spec label: "[01] SPARE PARTS", "PART ID" */
+  .spec-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
-  .hover-lift:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  .tabular {
+    font-variant-numeric: tabular-nums;
   }
 
-  .hover-glow {
-    transition: box-shadow 0.3s ease;
+  /* Corner registration marks, like a printed manual page */
+  .crop-marks {
+    background:
+      linear-gradient(var(--signal), var(--signal)) top left / 18px 3px,
+      linear-gradient(var(--signal), var(--signal)) top left / 3px 18px,
+      linear-gradient(var(--signal), var(--signal)) bottom right / 18px 3px,
+      linear-gradient(var(--signal), var(--signal)) bottom right / 3px 18px;
+    background-repeat: no-repeat;
   }
+}
 
-  .hover-glow:hover {
-    box-shadow: 0 0 20px rgba(46, 125, 50, 0.5);
-  }
+/*
+ * Hindi: Devanagari matras sit above and below the line, so the tight Latin leading
+ * (leading-none / leading-[0.9] on Teko) would clip or overlap. Unlayered + !important
+ * so it wins over those utilities wherever the page language is Hindi.
+ */
+:lang(hi) :is(h1, h2, h3, .font-display),
+:lang(hi) :is(h1, h2, h3) * {
+  line-height: 1.12 !important;
+}
 
-  .hover-scale {
-    transition: transform 0.3s ease;
-  }
+/* Letter-spacing breaks Devanagari conjuncts; Plex Mono has no Devanagari anyway. */
+:lang(hi) .spec-label {
+  font-family: var(--font-noto-deva), var(--font-mono);
+  letter-spacing: 0;
+  font-size: 0.8rem;
+}
 
-  .hover-scale:hover {
-    transform: scale(1.05);
-  }
-
-  /* Animations */
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease-in;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-slide-in-left {
-    animation: slideInLeft 0.6s ease-out;
-  }
-
-  @keyframes slideInLeft {
-    from {
-      opacity: 0;
-      transform: translateX(-50px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  .animate-slide-in-right {
-    animation: slideInRight 0.6s ease-out;
-  }
-
-  @keyframes slideInRight {
-    from {
-      opacity: 0;
-      transform: translateX(50px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  .animate-bounce-subtle {
-    animation: bounceSubtle 2s ease-in-out infinite;
-  }
-
-  @keyframes bounceSubtle {
-
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-
-  .animate-pulse-slow {
-    animation: pulseSlow 3s ease-in-out infinite;
-  }
-
-  @keyframes pulseSlow {
-
-    0%,
-    100% {
-      opacity: 1;
-    }
-
-    50% {
-      opacity: 0.7;
-    }
-  }
-
-  /* Glass Morphism */
-  .glass {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .glass-dark {
-    background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  /* Trust Badges */
-  .trust-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
-    color: white;
-    border-radius: 9999px;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
-  }
-
-  /* Indian Decorative Elements */
-  .border-indian {
-    border-image: linear-gradient(to right, #FF9933, #FFFFFF, #138808) 1;
-  }
-
-  .divider-indian {
-    height: 3px;
-    background: linear-gradient(to right, #FF9933 0%, #FFFFFF 50%, #138808 100%);
-    margin: 2rem 0;
-  }
-
-  /* Responsive Typography */
-  .text-responsive-xl {
-    font-size: clamp(2rem, 5vw, 4rem);
-  }
-
-  .text-responsive-lg {
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-  }
-
-  .text-responsive-md {
-    font-size: clamp(1.125rem, 2vw, 1.5rem);
-  }
-
-  /* Accessibility */
-  .focus-visible-ring {
-    outline: 2px solid #2E7D32;
-    outline-offset: 2px;
-  }
-
-  /* Performance Optimizations */
-  .will-change-transform {
-    will-change: transform;
-  }
-
-  .gpu-accelerated {
-    transform: translateZ(0);
-    backface-visibility: hidden;
+@media (prefers-reduced-motion: reduce) {
+  .animate-ticker {
+    animation: none;
   }
 }
