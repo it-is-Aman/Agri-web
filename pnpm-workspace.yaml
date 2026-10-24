@@ -3,3 +3,10 @@ allowBuilds:
   esbuild: true
   sharp: true
   unrs-resolver: true
+
+# Security: Next 15.5.x pins older versions of these. Force patched releases (pnpm audit).
+overrides:
+  postcss: ^8.5.31
+  sharp: ^0.35.5
+  nanoid@3: ^3.3.20
+  source-map-js: ^1.2.2
