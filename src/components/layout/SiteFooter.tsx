@@ -96,7 +96,8 @@ export function SiteFooter({ lang, t }: { lang: Locale; t: Dictionary }) {
           <div className="md:text-right">
             {regs.length > 0 && <p className="font-mono text-xs">{regs.join(" · ")}</p>}
             <p className="mt-1">
-              © {new Date().getFullYear()} {siteConfig.name}. {t.footer.rights}
+              © {new Date().getFullYear()} {siteConfig.name}
+              {siteConfig.nameHindi && ` (${siteConfig.nameHindi})`}. {t.footer.rights}
             </p>
           </div>
         </div>

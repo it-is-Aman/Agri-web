@@ -61,6 +61,7 @@ export default async function LangLayout({ children, params }: Props) {
     "@context": "https://schema.org",
     "@type": "HardwareStore",
     name: siteConfig.name,
+    alternateName: siteConfig.nameHindi || undefined,
     url: siteConfig.url,
     telephone: siteConfig.phone ? `+${siteConfig.phone}` : undefined,
     email: siteConfig.email || undefined,

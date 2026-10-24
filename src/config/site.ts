@@ -14,7 +14,12 @@ const whatsapp = toIntlDigits(env(process.env.NEXT_PUBLIC_WHATSAPP)) || phone
 export const siteConfig = {
   name: env(process.env.NEXT_PUBLIC_NAME_ENGLISH, "AgriTools"),
   nameHindi: env(process.env.NEXT_PUBLIC_NAME_HINDI, "एग्रीटूल्स"),
-  url: env(process.env.NEXT_PUBLIC_SITE_URL, "http://localhost:3000"),
+  // Falls back to the Vercel production domain (set automatically by Vercel) before localhost,
+  // so sitemap/canonical URLs are never "localhost" on a live deploy.
+  url: env(
+    process.env.NEXT_PUBLIC_SITE_URL,
+    process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000",
+  ),
   yearEstablished: Number(env(process.env.NEXT_PUBLIC_YEAR_ESTABLISHED, "2014")),
   phone,
   whatsapp,
